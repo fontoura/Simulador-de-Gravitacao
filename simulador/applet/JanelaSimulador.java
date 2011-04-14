@@ -1,10 +1,7 @@
 package simulador.applet;
 
-import java.awt.Graphics;
-
-import java.awt.image.BufferedImage;
-
-import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 /*
  *  Este arquivo é parte do programa Simulador de Gravitação.
@@ -25,23 +22,32 @@ import javax.swing.JPanel;
  */
 
 /**
- * Painel simples para exibição de imagens.
+ * Janela para exibição do applet fora do navegador.
  * @author Felipe Michels Fontoura
  */
-public class PainelImagem extends JPanel {
-    private static final long serialVersionUID = 5867644374045884550L;
+public class JanelaSimulador extends JFrame {
+    private static final long serialVersionUID = 6568974886161745111L;
 
-    private BufferedImage imagem;
+    private AppletSimulador applet;
 
-    public PainelImagem() {}
+    public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {};
 
-    public void alterarImagem(BufferedImage i) {
-        imagem = i;
-        repaint();
+        JanelaSimulador janela = new JanelaSimulador(500, 500);
+        janela.setVisible(true);
     }
 
-    @Override public void paint(Graphics g) {
-        super.paint(g);
-        if (imagem != null) g.drawImage(imagem, 0, 0, null);
+    public JanelaSimulador(int largura, int altura) {
+        super("Simulador de gravitação universal");
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+
+        setSize(getInsets().left + largura + getInsets().right, getInsets().top + altura + getInsets().bottom);
+        applet = new AppletSimulador();
+
+        add(applet);
     }
 }

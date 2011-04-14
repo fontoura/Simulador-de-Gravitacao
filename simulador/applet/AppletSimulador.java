@@ -1,4 +1,4 @@
-﻿package simulador.applet;
+package simulador.applet;
 
 import javax.swing.JApplet;
 import javax.swing.JCheckBoxMenuItem;
