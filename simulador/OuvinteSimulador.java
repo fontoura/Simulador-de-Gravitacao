@@ -1,20 +1,20 @@
-package simulador;
+ï»¿package simulador;
 
 /*
- *  Este arquivo é parte do programa Simulador de Gravitação.
+ *  Este arquivo Ã© parte do programa Simulador de GravitaÃ§Ã£o.
  *
- *  O Simulador de Gravitação é um software livre; você pode redistribui-lo
- *  e/ou modifica-lo dentro dos termos da Licença Pública Geral GNU como 
- *  publicada pela Fundação do Software Livre (FSF), quer seja na versão 2 da 
- *  Licença, quer seja em qualquer versão posterior.
+ *  O Simulador de GravitaÃ§Ã£o Ã© um software livre; vocÃª pode redistribui-lo
+ *  e/ou modifica-lo dentro dos termos da LicenÃ§a PÃºblica Geral GNU como 
+ *  publicada pela FundaÃ§Ã£o do Software Livre (FSF), quer seja na versÃ£o 2 da 
+ *  LicenÃ§a, quer seja em qualquer versÃ£o posterior.
  *
- *  Este programa é distribuido na esperança que possa ser util, 
- *  mas SEM QUALQUER GARANTIA; sem sequer garantias implícitas de
- *  ADEQUAÇÂO ao MERCADO ou a qualquer APLICAÇÃO EM PARTICULAR. Veja
- *  a Licença Pública Geral GNU para maiores detalhes.
+ *  Este programa Ã© distribuido na esperanÃ§a que possa ser util, 
+ *  mas SEM QUALQUER GARANTIA; sem sequer garantias implÃ­citas de
+ *  ADEQUAÃ‡Ã‚O ao MERCADO ou a qualquer APLICAÃ‡ÃƒO EM PARTICULAR. Veja
+ *  a LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
  *
- *  Você deve ter recebido uma cópia da Licença Pública Geral GNU
- *  junto com este programa; se não, escreva para a Fundação do Software
+ *  VocÃª deve ter recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU
+ *  junto com este programa; se nÃ£o, escreva para a FundaÃ§Ã£o do Software
  *  Livre(FSF) Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
@@ -23,19 +23,19 @@ package simulador;
  */
 public interface OuvinteSimulador {
 	/**
-	 * Evento disparado quando um novo corpo é adicionado ao simulador.
+	 * Evento disparado quando um novo corpo Ã© adicionado ao simulador.
 	 * @param corpo Corpo adicionado ao simulador.
 	 */
 	public void adicionou(Corpo corpo);
 	
 	/**
-	 * Evento disparado quando um corpo é removido do simulador.
+	 * Evento disparado quando um corpo Ã© removido do simulador.
 	 * @param corpo Corpo removido do simulador.
 	 */
 	public void removeu(Corpo corpo);
 	
 	/**
-	 * Evento disparado quando dois corpos são unidos no simulador, ocupando
+	 * Evento disparado quando dois corpos sÃ£o unidos no simulador, ocupando
 	 * o lugar do primeiro.
 	 * @param corpo_1 Primeiro corpo.
 	 * @param corpo_2 Segundo corpo.

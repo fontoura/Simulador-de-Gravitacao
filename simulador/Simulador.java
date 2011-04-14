@@ -1,22 +1,22 @@
-package simulador;
+ï»¿package simulador;
 
 import java.awt.Color;
 
 /*
- *  Este arquivo é parte do programa Simulador de Gravitação.
+ *  Este arquivo Ã© parte do programa Simulador de GravitaÃ§Ã£o.
  *
- *  O Simulador de Gravitação é um software livre; você pode redistribui-lo
- *  e/ou modifica-lo dentro dos termos da Licença Pública Geral GNU como 
- *  publicada pela Fundação do Software Livre (FSF), quer seja na versão 2 da 
- *  Licença, quer seja em qualquer versão posterior.
+ *  O Simulador de GravitaÃ§Ã£o Ã© um software livre; vocÃª pode redistribui-lo
+ *  e/ou modifica-lo dentro dos termos da LicenÃ§a PÃºblica Geral GNU como 
+ *  publicada pela FundaÃ§Ã£o do Software Livre (FSF), quer seja na versÃ£o 2 da 
+ *  LicenÃ§a, quer seja em qualquer versÃ£o posterior.
  *
- *  Este programa é distribuido na esperança que possa ser util, 
- *  mas SEM QUALQUER GARANTIA; sem sequer garantias implícitas de
- *  ADEQUAÇÂO ao MERCADO ou a qualquer APLICAÇÃO EM PARTICULAR. Veja
- *  a Licença Pública Geral GNU para maiores detalhes.
+ *  Este programa Ã© distribuido na esperanÃ§a que possa ser util, 
+ *  mas SEM QUALQUER GARANTIA; sem sequer garantias implÃ­citas de
+ *  ADEQUAÃ‡Ã‚O ao MERCADO ou a qualquer APLICAÃ‡ÃƒO EM PARTICULAR. Veja
+ *  a LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
  *
- *  Você deve ter recebido uma cópia da Licença Pública Geral GNU
- *  junto com este programa; se não, escreva para a Fundação do Software
+ *  VocÃª deve ter recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU
+ *  junto com este programa; se nÃ£o, escreva para a FundaÃ§Ã£o do Software
  *  Livre(FSF) Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
@@ -26,7 +26,7 @@ import java.awt.Color;
 public class Simulador {
 	private static final int INCREMENTO_CAPACIDADE = 8;
 	
-	// variáveis internas declara tudo de uma vez para ganhar velocidade.
+	// variÃ¡veis internas declara tudo de uma vez para ganhar velocidade.
 	private int i, j, c1, c2;
 	private double a, b, c, ct, delta_x, delta_y, delta_vx, delta_vy, mi, mj, distancia, delta, massa;
 	private boolean colisao;
@@ -35,7 +35,7 @@ public class Simulador {
 	public Corpo[] corpos;
 	public int total_corpos;
 	
-	// lista de vetores de aceleração.
+	// lista de vetores de aceleraÃ§Ã£o.
 	private Vetor[] aceleracao;
 	
 	// lista de ouvintes do simulador
@@ -66,7 +66,7 @@ public class Simulador {
 	
 	// adiciona um ouvinte de simulador.
 	public void adicionarOuvinte(OuvinteSimulador ouvinte) {
-		// aloca mais memória para o novo ouvinte.
+		// aloca mais memÃ³ria para o novo ouvinte.
 		OuvinteSimulador[] ouvintes_2 = new OuvinteSimulador[ouvintes.length + 1];
 		System.arraycopy(ouvintes, 0, ouvintes_2, 0, ouvintes.length);
 		ouvintes_2[ouvintes.length] = ouvinte;
@@ -87,7 +87,7 @@ public class Simulador {
 	
 	// remove um corpo do simulador.
 	public void removerCorpo(Corpo corpo) {
-		// remove as ocorrências do corpo.
+		// remove as ocorrÃªncias do corpo.
 		j = 0;
 		for (i = 0; i < total_corpos; i ++) {
 			aceleracao[j] = aceleracao[i];
@@ -109,7 +109,7 @@ public class Simulador {
 	
 	// colide dois corpos.
 	public void colidirCorpos(Corpo corpo1, Corpo corpo2) {
-		// junta as informações sobre os corpos.
+		// junta as informaÃ§Ãµes sobre os corpos.
 		massa = corpo1.massa.v + corpo2.massa.v;
 		corpo1.cor = new Color((int)((corpo1.cor.getRed() * corpo1.massa.v + corpo2.cor.getRed() * corpo2.massa.v)/massa),
 							   (int)((corpo1.cor.getGreen() * corpo1.massa.v + corpo2.cor.getGreen() * corpo2.massa.v)/massa),
@@ -144,7 +144,7 @@ public class Simulador {
 		// incrementa o total de corpos.
 		total_corpos ++;
 		
-		// se necessário, aloca mais memória.
+		// se necessÃ¡rio, aloca mais memÃ³ria.
 		if (total_corpos == corpos.length) {
 			Corpo[] corpos_2 = new Corpo[total_corpos + INCREMENTO_CAPACIDADE];
 			Vetor[] aceleracao_2 = new Vetor[total_corpos + INCREMENTO_CAPACIDADE];
@@ -163,16 +163,16 @@ public class Simulador {
 			ouvintes[i].adicionou(corpo);
 	}
 	
-	// método que executa a integração numérica.
+	// mÃ©todo que executa a integraÃ§Ã£o numÃ©rica.
 	public void gatilho(double t) {
 		
-		// limpa o vetor de acelerações.
+		// limpa o vetor de aceleraÃ§Ãµes.
 		for (i = 0; i < total_corpos; i ++) {
 			aceleracao[i].x = 0;
 			aceleracao[i].y = 0;
 		}
 		
-		// calcula a aceleração instantânea de cada um dos corpos.
+		// calcula a aceleraÃ§Ã£o instantÃ¢nea de cada um dos corpos.
 		for (i = 0; i < total_corpos; i ++) for (j = i + 1; j < total_corpos; j ++) {
 	        delta_x = corpos[i].posicao.x - corpos[j].posicao.x;
 	        delta_y = corpos[i].posicao.y - corpos[j].posicao.y;
@@ -186,13 +186,13 @@ public class Simulador {
 			aceleracao[j].y += delta_y * mj;
 		}
 		
-		// calcula a velocidade média dos corpos.
+		// calcula a velocidade mÃ©dia dos corpos.
 		for (i = 0; i < total_corpos; i ++) {
 	        corpos[i].velocidade.x += (aceleracao[i].x * t) / 2;
 	        corpos[i].velocidade.y += (aceleracao[i].y * t) / 2;
 		}
 		
-		// testa por colisões entre os corpos.
+		// testa por colisÃµes entre os corpos.
 		colisao = true;
 		while (colisao) {
 			colisao = false;
@@ -212,7 +212,7 @@ public class Simulador {
 		            a = delta_vx*delta_vx + delta_vy*delta_vy;
 		            b = 2*(delta_x*delta_vx + delta_y*delta_vy);
 		            c = delta_x*delta_x + delta_y*delta_y - distancia*distancia;
-		            delta =  b*b - 4*a*c; // ditancia é o delta
+		            delta =  b*b - 4*a*c; // ditancia Ã© o delta
 		            if (delta > 0) {
 		            	delta = Math.sqrt(delta);
 		            	delta /= 2*a;
@@ -230,13 +230,13 @@ public class Simulador {
 			if (colisao) colidirCorpos(corpos[c1], corpos[c2]);
 		}
 
-		// limpa o vetor de acelerações.
+		// limpa o vetor de aceleraÃ§Ãµes.
 		for (i = 0; i < total_corpos; i ++) {
 			aceleracao[i].x = 0;
 			aceleracao[i].y = 0;
 		}
 		
-		// calcula a aceleração instantânea de cada um dos corpos.
+		// calcula a aceleraÃ§Ã£o instantÃ¢nea de cada um dos corpos.
 		for (i = 0; i < total_corpos; i ++) for (j = i + 1; j < total_corpos; j ++) {
 	        delta_x = corpos[i].posicao.x - corpos[j].posicao.x;
 	        delta_y = corpos[i].posicao.y - corpos[j].posicao.y;

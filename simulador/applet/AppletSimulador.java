@@ -1,4 +1,4 @@
-package simulador.applet;
+ï»¿package simulador.applet;
 
 import javax.swing.JApplet;
 import javax.swing.JCheckBoxMenuItem;
@@ -26,20 +26,20 @@ import java.util.Locale;
 import simulador.*;
 
 /*
- *  Este arquivo é parte do programa Simulador de Gravitação.
+ *  Este arquivo Ã© parte do programa Simulador de GravitaÃ§Ã£o.
  *
- *  O Simulador de Gravitação é um software livre; você pode redistribui-lo
- *  e/ou modifica-lo dentro dos termos da Licença Pública Geral GNU como 
- *  publicada pela Fundação do Software Livre (FSF), quer seja na versão 2 da 
- *  Licença, quer seja em qualquer versão posterior.
+ *  O Simulador de GravitaÃ§Ã£o Ã© um software livre; vocÃª pode redistribui-lo
+ *  e/ou modifica-lo dentro dos termos da LicenÃ§a PÃºblica Geral GNU como 
+ *  publicada pela FundaÃ§Ã£o do Software Livre (FSF), quer seja na versÃ£o 2 da 
+ *  LicenÃ§a, quer seja em qualquer versÃ£o posterior.
  *
- *  Este programa é distribuido na esperança que possa ser util, 
- *  mas SEM QUALQUER GARANTIA; sem sequer garantias implícitas de
- *  ADEQUAÇÂO ao MERCADO ou a qualquer APLICAÇÃO EM PARTICULAR. Veja
- *  a Licença Pública Geral GNU para maiores detalhes.
+ *  Este programa Ã© distribuido na esperanÃ§a que possa ser util, 
+ *  mas SEM QUALQUER GARANTIA; sem sequer garantias implÃ­citas de
+ *  ADEQUAÃ‡Ã‚O ao MERCADO ou a qualquer APLICAÃ‡ÃƒO EM PARTICULAR. Veja
+ *  a LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
  *
- *  Você deve ter recebido uma cópia da Licença Pública Geral GNU
- *  junto com este programa; se não, escreva para a Fundação do Software
+ *  VocÃª deve ter recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU
+ *  junto com este programa; se nÃ£o, escreva para a FundaÃ§Ã£o do Software
  *  Livre(FSF) Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
@@ -61,7 +61,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 	
 	private DecimalFormat formatador;
 
-	// variáveis internas (para economizar tempo).
+	// variÃ¡veis internas (para economizar tempo).
 	private boolean status;
 	private Corpo selecionado;
 	
@@ -69,7 +69,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 	private int mouse_x1, mouse_y1;
 	private int mouse_x2, mouse_y2;
 	
-	// para medição do tempo.
+	// para mediÃ§Ã£o do tempo.
 	private int total_segundos;
 	private int total_minutos;
 	private int total_horas;
@@ -77,18 +77,18 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 	private int total_anos;
 	private int estado;
 	
-	// para a exibição dos gráficos.
+	// para a exibiÃ§Ã£o dos grÃ¡ficos.
 	private BufferedImage tela;
     private Graphics2D g2d;
     private PainelImagem painel;
 	
-	// classe que executa a simulação.
+	// classe que executa a simulaÃ§Ã£o.
 	public Simulador simulador;
 	
-	// estado da simulação.
+	// estado da simulaÃ§Ã£o.
 	public boolean simulando;
 
-    // opções de exibição.
+    // opÃ§Ãµes de exibiÃ§Ã£o.
     public Vetor centro;
     public Escalar escala;
     public Escalar escalaVetores;
@@ -97,12 +97,12 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
     // corpos selecionados.
     public LinkedList<Corpo> selecionados;
     
-    // opções da integração numérica.
+    // opÃ§Ãµes da integraÃ§Ã£o numÃ©rica.
     public Timer sincronismo;
     public int intervalo;
     public int integracoes;
     
-    // para seleção.
+    // para seleÃ§Ã£o.
     public Corpo objeto;
     
     // para o menu.
@@ -142,13 +142,13 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
         painel.addMouseMotionListener(this);
         add(painel);
         
-        // crias os parâmetros de medição do tempo.
+        // crias os parÃ¢metros de mediÃ§Ã£o do tempo.
         total_segundos = 0;
         total_minutos = 0;
         total_dias = 0;
         total_anos = 0;
         
-        // cria os parâmetros padrão de exibição.
+        // cria os parÃ¢metros padrÃ£o de exibiÃ§Ã£o.
         escala = new Escalar(1E-9);
         escalaVetores = new Escalar(1E-3);
         escalaRaios = new Escalar(1E-9);
@@ -159,7 +159,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
         
         // cria o menu.
         menu = new JMenuBar();
-        menu_simulacao = new JMenu("Simulação");
+        menu_simulacao = new JMenu("SimulaÃ§Ã£o");
         menu_simulacao_ativar = new JMenuItem("Ativar");
         menu_simulacao_ativar.addActionListener(new ActionListener() {
 			@Override public void actionPerformed(ActionEvent e) {
@@ -256,7 +256,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
         menu.add(menu_exibir);
 
         menu_sobre = new JMenu("Sobre");
-        menu_sobre_licenca = new JMenuItem("Licença");
+        menu_sobre_licenca = new JMenuItem("LicenÃ§a");
         menu_sobre_licenca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarLicenca();
@@ -271,8 +271,8 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
         simulador = new Simulador();
         simulador.adicionarOuvinte(this);
         /* Sol:      */ simulador.adicionarCorpo(new Corpo(0, 0, 0, 0, 1.9891E30, 50*0.696E9, Color.yellow)); // adiciona o sol.
-        /* Mercúrio: */ simulador.adicionarCorpo(new Corpo(5.889E10, 0, 0, -48.99E3, 3.3022E23, 500*2.4397E6, Color.lightGray));
-        /* Vênus:    */ simulador.adicionarCorpo(new Corpo(1.082E11, 0, 0, -35.02E3, 4.868E24, 500*6.0518E6, Color.white));
+        /* MercÃºrio: */ simulador.adicionarCorpo(new Corpo(5.889E10, 0, 0, -48.99E3, 3.3022E23, 500*2.4397E6, Color.lightGray));
+        /* VÃªnus:    */ simulador.adicionarCorpo(new Corpo(1.082E11, 0, 0, -35.02E3, 4.868E24, 500*6.0518E6, Color.white));
         /* Terra     */ simulador.adicionarCorpo(new Corpo(1.496E11, 0, 0, -29.783E3, 5.9736E24, 500*6.371E6, Color.blue));
         /* Marte:    */ simulador.adicionarCorpo(new Corpo(2.279E11, 0, 0, -24.077E3, 6.4185E23, 500*3.396E6, Color.red));
 
@@ -300,7 +300,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 	private void mostrarLicenca() {
 		status = simulando;
 		definirSimulacao(false);
-		JOptionPane.showMessageDialog(this, "O programa Simulador de Gravitação, de autoria de Felipe Michels Fontoura, é\nlicenciado nos termos da licença CC-GNU GPL.\n\nO Simulador de Gravitação é um software livre; você pode redistribui-lo\ne/ou modifica-lo dentro dos termos da Licença Pública Geral GNU como\npublicada pela Fundação do Software Livre (FSF), quer seja na versão 2 da\nLicença, quer seja em qualquer versão posterior.\n\nEste programa é distribuido na esperança que possa ser util,\nmas SEM QUALQUER GARANTIA; sem sequer garantias implícitas de\nADEQUAÇÂO ao MERCADO ou a qualquer APLICAÇÃO EM PARTICULAR. Veja\na Licença Pública Geral GNU para maiores detalhes.\n\nVocê deve ter recebido uma cópia da Licença Pública Geral GNU\njunto com este programa; se não, escreva para a Fundação do Software\nLivre(FSF) Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA", "Sobre > Licença", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "O programa Simulador de GravitaÃ§Ã£o, de autoria de Felipe Michels Fontoura, Ã©\nlicenciado nos termos da licenÃ§a CC-GNU GPL.\n\nO Simulador de GravitaÃ§Ã£o Ã© um software livre; vocÃª pode redistribui-lo\ne/ou modifica-lo dentro dos termos da LicenÃ§a PÃºblica Geral GNU como\npublicada pela FundaÃ§Ã£o do Software Livre (FSF), quer seja na versÃ£o 2 da\nLicenÃ§a, quer seja em qualquer versÃ£o posterior.\n\nEste programa Ã© distribuido na esperanÃ§a que possa ser util,\nmas SEM QUALQUER GARANTIA; sem sequer garantias implÃ­citas de\nADEQUAÃ‡Ã‚O ao MERCADO ou a qualquer APLICAÃ‡ÃƒO EM PARTICULAR. Veja\na LicenÃ§a PÃºblica Geral GNU para maiores detalhes.\n\nVocÃª deve ter recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU\njunto com este programa; se nÃ£o, escreva para a FundaÃ§Ã£o do Software\nLivre(FSF) Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA", "Sobre > LicenÃ§a", JOptionPane.INFORMATION_MESSAGE);
 		if (status) definirSimulacao(true);
 	}
 
@@ -312,12 +312,12 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 			try {
 				double massa = Double.parseDouble(retorno);
 				if (massa <= 0) {
-					JOptionPane.showMessageDialog(this, "A massa deve ser um número superior a zero!", "Erro!", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(this, "A massa deve ser um nÃºmero superior a zero!", "Erro!", JOptionPane.WARNING_MESSAGE);
 				} else {
 					selecionados.getFirst().massa.v = massa;
 				}
 			} catch (Throwable t) {
-				JOptionPane.showMessageDialog(this, "O dado fornecido é inválido.", "Erro!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, "O dado fornecido Ã© invÃ¡lido.", "Erro!", JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		if (status) definirSimulacao(true);
@@ -333,7 +333,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 			try {
 				double raio = Double.parseDouble(retorno);
 				if (raio <= 0) {
-					JOptionPane.showMessageDialog(this, "O raio deve ser um número superior a zero!", "Erro!", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(this, "O raio deve ser um nÃºmero superior a zero!", "Erro!", JOptionPane.WARNING_MESSAGE);
 				} else {
 					Corpo selecionado = selecionados.getFirst();
 					boolean valido = true;
@@ -347,11 +347,11 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 					if (valido) {
 						selecionado.raio.v = raio;
 					} else {
-						JOptionPane.showMessageDialog(this, "O valor fornecido é grande demais!", "Erro!", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(this, "O valor fornecido Ã© grande demais!", "Erro!", JOptionPane.WARNING_MESSAGE);
 					}
 				}
 			} catch (Throwable t) {
-				JOptionPane.showMessageDialog(this, "O dado fornecido é inválido." + retorno, "Erro!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, "O dado fornecido Ã© invÃ¡lido." + retorno, "Erro!", JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		if (status) definirSimulacao(true);
@@ -390,7 +390,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 					selecionado.velocidade.y *= velocidade / modulo_anterior;
 				}
 			} catch (Throwable t) {
-				JOptionPane.showMessageDialog(this, "O dado fornecido é inválido.", "Erro!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, "O dado fornecido Ã© invÃ¡lido.", "Erro!", JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		if (status) definirSimulacao(true);
@@ -427,7 +427,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
         menu_corpos_apagar.setEnabled(!selecionados.isEmpty());
     }
     
-    // métodos chamados para redesenhar os gráficos na tela.
+    // mÃ©todos chamados para redesenhar os grÃ¡ficos na tela.
     public void redesenhar() {
 		if (painel.getWidth() == 0 || painel.getHeight() == 0) return;
 		if (tela == null || tela.getWidth() != painel.getWidth() || tela.getHeight() != painel.getHeight()) {
@@ -537,7 +537,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
         g2d.drawString(escreverTempo(), -painel.getWidth()/2, painel.getHeight()/2);
     }
     
-    // define o estado da simulação.
+    // define o estado da simulaÃ§Ã£o.
     public void definirSimulacao(boolean ativa) {
         if (ativa) {
         	simulando = true;
@@ -659,7 +659,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 			mouse_x1 = evento_mouse.getX() - painel.getWidth() / 2;
 			mouse_y1 = evento_mouse.getY() - painel.getHeight() / 2;
 			
-			// verifica se está sobre um seletor de velocidade.
+			// verifica se estÃ¡ sobre um seletor de velocidade.
 			Corpo selecionado = null;
 			for (Corpo corpo : selecionados) {
 	            x = (int) Math.round(escalaVetores.v * corpo.velocidade.x + escala.v*(corpo.posicao.x - centro.x)) - mouse_x1;
@@ -674,7 +674,7 @@ public class AppletSimulador extends JApplet implements OuvinteSimulador, MouseL
 				objeto = selecionado;
 				redesenhar();
 			} else {
-				// se não estiver, seleciona ou desseleciona 
+				// se nÃ£o estiver, seleciona ou desseleciona 
 				for (int i = 0; i < simulador.total_corpos; i ++) {
 		            x = (int) Math.round(escala.v*(simulador.corpos[i].posicao.x - centro.x)) - mouse_x1;
 		            y = (int) Math.round(escala.v*(simulador.corpos[i].posicao.y - centro.y)) - mouse_y1;
