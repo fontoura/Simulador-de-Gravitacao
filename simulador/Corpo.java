@@ -6,11 +6,11 @@ import java.awt.Color;
  *  Este arquivo é parte do programa Simulador de Gravitação.
  *
  *  O Simulador de Gravitação é um software livre; você pode redistribui-lo
- *  e/ou modifica-lo dentro dos termos da Licença Pública Geral GNU como 
- *  publicada pela Fundação do Software Livre (FSF), quer seja na versão 2 da 
+ *  e/ou modifica-lo dentro dos termos da Licença Pública Geral GNU como
+ *  publicada pela Fundação do Software Livre (FSF), quer seja na versão 2 da
  *  Licença, quer seja em qualquer versão posterior.
  *
- *  Este programa é distribuido na esperança que possa ser util, 
+ *  Este programa é distribuido na esperança que possa ser util,
  *  mas SEM QUALQUER GARANTIA; sem sequer garantias implícitas de
  *  ADEQUAÇÂO ao MERCADO ou a qualquer APLICAÇÃO EM PARTICULAR. Veja
  *  a Licença Pública Geral GNU para maiores detalhes.
@@ -21,18 +21,20 @@ import java.awt.Color;
  */
 
 /**
+ * Corpo esférico (na verdade, circular) usado na simulação.
+ *
  * @author Felipe Michels Fontoura
  */
 public class Corpo {
     // constantes gerais.
     public static final double constante_gravitacional = 6.67428E-11;
-    
+
     // dados característicos do planeta no sistema internacional de unidades.
     public Escalar massa;
     public Escalar raio;
     public Vetor posicao;
     public Vetor velocidade;
-    
+
     // dados para os gráficos.
     public Color cor;
 
